@@ -42,7 +42,7 @@ fn app() -> Element {
                 count: count_value,
             };
 
-            let response = match Request::post("http://127.0.0.1:4001/api/worksheet")
+            let response = match Request::post(&api_endpoint())
                 .header("Content-Type", "application/json")
                 .json(&payload)
                 .expect("payload")
@@ -135,6 +135,16 @@ fn app() -> Element {
             }
         }
     }
+}
+
+fn api_endpoint() -> String {
+    let window = web_sys::window().expect("window");
+    let location = window.location();
+    let protocol = location.protocol().unwrap_or_else(|_| "http:".to_string());
+    let hostname = location
+        .hostname()
+        .unwrap_or_else(|_| "127.0.0.1".to_string());
+    format!("{protocol}//{hostname}:4001/api/worksheet")
 }
 
 #[component]
