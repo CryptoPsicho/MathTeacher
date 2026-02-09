@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-use dioxus::prelude::*;
+// use dioxus::prelude::*;
 use gloo_net::http::Request;
 use serde::Serialize;
 
@@ -10,11 +10,11 @@ struct WorksheetRequest {
 }
 
 fn main() {
-    dioxus::launch(App);
+    dioxus::launch(app);
 }
 
-fn App() -> Element {
-    let mut selected = use_signal(|| vec![false; 10]);
+fn app() -> Element {
+    let selected = use_signal(|| vec![false; 10]);
     let mut status = use_signal(String::new);
     let mut count = use_signal(|| 30u32);
     let mut download_url = use_signal(|| Option::<String>::None);
