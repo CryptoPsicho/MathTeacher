@@ -1,6 +1,6 @@
 FROM rust:1.88-slim
 WORKDIR /app
-RUN cargo install dioxus-cli --version 0.7.0
+RUN cargo install dioxus-cli --version 0.7.0 --locked
 COPY . .
 EXPOSE 4000
 CMD ["dx", "serve", "-p", "math_teacher_web", "-a", "0.0.0.0", "-p", "4000"]
