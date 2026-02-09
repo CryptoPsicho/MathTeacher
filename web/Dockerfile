@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     unzip \
  && rm -rf /var/lib/apt/lists/*
 ENV PATH="/root/.cargo/bin:${PATH}"
-RUN curl -fsSL https://dioxus.dev/install.sh | bash
+RUN mkdir -p /root/.cargo/bin && curl -fsSL https://dioxus.dev/install.sh | bash
 WORKDIR /app
 COPY . .
 EXPOSE 4000
