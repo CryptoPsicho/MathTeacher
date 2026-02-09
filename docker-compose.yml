@@ -1,0 +1,18 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    ports:
+      - "4001:4001"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: web/Dockerfile
+    ports:
+      - "4000:4000"
+    depends_on:
+      - backend
+    restart: unless-stopped
