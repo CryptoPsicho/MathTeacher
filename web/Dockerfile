@@ -3,6 +3,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
     curl \
     unzip \
+    build-essential \
  && rm -rf /var/lib/apt/lists/*
 ENV PATH="/root/.cargo/bin:${PATH}"
 RUN curl -fsSL https://sh.rustup.rs | sh -s -- -y --profile minimal
