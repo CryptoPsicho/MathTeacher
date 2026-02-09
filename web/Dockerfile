@@ -1,4 +1,4 @@
-FROM rust:1.82-slim
+FROM rust:1.85-slim
 WORKDIR /app
 RUN cargo install dioxus-cli --version 0.7.0
 COPY . .
