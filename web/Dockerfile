@@ -9,4 +9,4 @@ RUN mkdir -p /root/.cargo/bin && curl -fsSL https://dioxus.dev/install.sh | bash
 WORKDIR /app
 COPY . .
 EXPOSE 4000
-CMD ["dx", "serve", "-p", "math_teacher_web", "-p", "4000"]
+CMD ["dx", "serve", "--package", "math_teacher_web", "--addr", "0.0.0.0", "--port", "4000", "--web"]
